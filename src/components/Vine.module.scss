@@ -1,0 +1,30 @@
+.vine {
+  stroke: green;
+  stroke-linecap: round;
+  stroke-dashoffset: 100;
+  stroke-opacity: 0.2;
+  stroke-width: 2;
+}
+
+.on {
+  animation-name: grow;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes grow {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes shrink {
+  to {
+    stroke-dashoffset: 100;
+  }
+}
