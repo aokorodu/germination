@@ -15,6 +15,7 @@ const Vine = (points) => {
   });
 
   const maxY = pathPoints.length;
+  const maxScale = 1 + Math.random() * 1.5;
 
   const getColor = () => {
     const h = Math.round(Math.random() * 360);
@@ -46,7 +47,7 @@ const Vine = (points) => {
   };
 
   const getFlower = () => {
-    const flower = Math.random() > 0.1 ? "#flower" : "#ball";
+    const flower = Math.random() > 0.3 ? "#flower" : "#ball";
     return flower;
   };
 
@@ -106,7 +107,7 @@ const Vine = (points) => {
         <animateTransform
           attributeName="transform"
           type="scale"
-          values={`0; ${maxY / 250}`}
+          values={`0; ${maxScale}`}
           begin="1s"
           dur="10s"
           additive="sum"

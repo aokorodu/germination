@@ -5,7 +5,7 @@ import Perlin from "perlin.js";
 
 function App() {
   useEffect(() => {});
-  const numberOfVines = 10 + Math.round(Math.random() * 30);
+  const numberOfVines = 10 + Math.round(Math.random() * 50);
   const defX = 500;
 
   const generatePerlinePoints = () => {
@@ -67,9 +67,6 @@ function App() {
             </g>
             <circle cx="0" cy="0" r="6" fill="white" fillOpacity={0.3} />
           </g>
-          <g id="ball">
-            <circle cx="0" cy="0" r="3" fill="white" fillOpacity={0.8} />
-          </g>
           <radialGradient
             id="paint0_radial_1150_1431"
             cx="0"
@@ -77,9 +74,17 @@ function App() {
             r="1000"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#535353" />
-            <stop offset="1" stop-color="#222222" />
+            <stop stopColor="#535353" />
+            <stop offset="1" stopColor="#222222" />
           </radialGradient>
+          <radialGradient id="glow">
+            <stop offset="0%" stop-color="red" />
+            <stop offset="100%" stop-color="blue" />
+          </radialGradient>
+
+          <g id="ball">
+            <circle cx="0" cy="0" r="4" fill="white" />
+          </g>
         </defs>
 
         <rect
