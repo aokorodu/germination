@@ -74,8 +74,8 @@ function App() {
             r="1000"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#535353" />
-            <stop offset="1" stopColor="#222222" />
+            <stop stopColor="#3c342f" />
+            <stop offset="1" stopColor="#1f1c1a" />
           </radialGradient>
           <radialGradient id="glow">
             <stop offset="0%" stop-color="red" />
