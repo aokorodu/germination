@@ -15,7 +15,7 @@ const Vine = (points) => {
   });
 
   const maxY = pathPoints.length;
-  const maxScale = 1 + Math.random() * 1.5;
+  const maxScale = 1 + Math.random() * 2;
 
   const getColor = () => {
     const h = Math.round(Math.random() * 360);
@@ -47,8 +47,17 @@ const Vine = (points) => {
   };
 
   const getFlower = () => {
-    const flower = Math.random() > 0.3 ? "#flower" : "#ball";
-    return flower;
+    const rand = Math.round(Math.random() * 10);
+    let id = "#ball";
+    if (rand < 2) {
+      id = "#ball";
+    } else if (rand < 8) {
+      id = "#flower";
+    } else {
+      id = "#flower_2";
+    }
+    //const flower = Math.random() > 0.3 ? "#flower_2" : "#ball";
+    return id;
   };
 
   const getLeaves = () => {

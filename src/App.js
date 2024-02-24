@@ -5,19 +5,29 @@ import Perlin from "perlin.js";
 
 function App() {
   useEffect(() => {});
-  const numberOfVines = 10 + Math.round(Math.random() * 50);
+  const numberOfVines = 5 + Math.round(Math.random() * 55);
   const defX = 500;
 
+  const getTodaysDate = () => {
+    const d = new Date();
+    const date = d.getDate();
+    const year = d.getFullYear();
+    const month = d.getMonth();
+
+    return `zuubaDigital ~ ${month + 1}.${date}.${year}`;
+  };
+
   const generatePerlinePoints = () => {
+    const curveDenominator = 300 + Math.round(Math.random() * 600);
     Perlin.seed(Math.random());
     let startX = defX;
-    const maxY = 200 + Math.round(Math.random() * 650);
+    const maxY = 300 + Math.round(Math.random() * 550);
     let range = 0;
     const arr = [];
     const rangeIncrement = 0.1 + Math.random() * 0.3;
     for (let i = 0; i < maxY; i++) {
       const ypos = 1000 - i;
-      const dx = Perlin.simplex2(defX, ypos / 300) * range;
+      const dx = Perlin.simplex2(defX, ypos / curveDenominator) * range;
       const xpos = startX + dx;
       const pt = {
         x: Math.round(xpos),
@@ -45,7 +55,12 @@ function App() {
 
   return (
     <div className="App">
-      <svg width="500" height="500" viewBox="0 0 1000 1000">
+      <svg
+        width="600"
+        height="600"
+        viewBox="0 0 1000 1000"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <defs>
           <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
             <feDropShadow
@@ -67,6 +82,44 @@ function App() {
             </g>
             <circle cx="0" cy="0" r="6" fill="white" fillOpacity={0.3} />
           </g>
+          <g id="flower_2">
+            <g transform="translate(-20 -20)">
+              <path
+                fillOpacity="1"
+                d="M40 19.8293C40 22.2084 28.2995 25.267 20 24.6744L20 15.2491C28.0333 14.0488 40 17.4503 40 19.8293Z"
+              />
+              <path
+                fillOpacity="1"
+                d="M0 19.6688C3.11977e-07 17.2897 11.7005 14.6565 20 15.2491V24.6701C11.9667 25.8703 -3.11977e-07 22.0479 0 19.6688Z"
+              />
+              <path
+                fillOpacity="1"
+                d="M19.8293 0C22.2084 0 25.267 11.7005 24.6744 20L15.2491 20C14.0488 11.9667 17.4503 0 19.8293 0Z"
+              />
+              <path
+                fillOpacity="1"
+                d="M19.6688 40C17.2897 40 14.6565 28.2995 15.2491 20H24.6701C25.8703 28.0333 22.0479 40 19.6688 40Z"
+              />
+              <path
+                fillOpacity="1"
+                d="M30.5555 31.3708C29.2683 32.658 21.2829 27.9823 17.113 23.1712L22.2126 18.0716C27.2085 21.7686 31.8427 30.0836 30.5555 31.3708Z"
+              />
+              <path
+                fillOpacity="1"
+                d="M9.00026 9.64184C10.2875 8.35464 18.0428 13.2605 22.2126 18.0716L17.1154 23.1688C12.1195 19.4718 7.71306 10.929 9.00026 9.64184Z"
+              />
+              <path
+                fillOpacity="1"
+                d="M30.3708 9.72874C31.658 11.0159 26.9823 19.0014 22.1712 23.1713L17.0716 18.0716C20.7686 13.0758 29.0836 8.44154 30.3708 9.72874Z"
+              />
+              <path
+                fillOpacity="1"
+                d="M8.64186 31.284C7.35466 29.9968 12.2605 22.2415 17.0716 18.0716L22.1689 23.1689C18.4719 28.1647 9.92906 32.5712 8.64186 31.284Z"
+              />
+
+              <circle cx="20" cy="20" r="5" fill="white" fill-opacity=".1" />
+            </g>
+          </g>
           <radialGradient
             id="paint0_radial_1150_1431"
             cx="0"
@@ -87,13 +140,19 @@ function App() {
           </g>
         </defs>
 
-        <rect
+        {/* <rect
           width="1000"
           height="1000"
           stroke="grey"
           fill="url(#paint0_radial_1150_1431)"
+        /> */}
+        <circle
+          cx="500"
+          cy="500"
+          r="498"
+          fill="url(#paint0_radial_1150_1431)"
         />
-        <text
+        {/* <text
           className="titleText"
           x="30"
           y="970"
@@ -113,10 +172,20 @@ function App() {
           fill="white"
           fontSize={30}
         >
-          02.20.2024
-        </text>
+          {getTodaysDate()}
+        </text> */}
         <g className="vineholder">{getVines()}</g>
+        <circle
+          cx="500"
+          cy="500"
+          r="498"
+          stroke="black"
+          strokeWidth={4}
+          strokeOpacity={1}
+          fill="none"
+        />
       </svg>
+      <div className="dateText">{getTodaysDate()}</div>
     </div>
   );
 }
