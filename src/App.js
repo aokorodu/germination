@@ -62,6 +62,9 @@ function App() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
+          <clipPath id="clippy">
+            <circle cx="500" cy="500" r="500" fill="none" />
+          </clipPath>
           <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
             <feDropShadow
               dx="0"
@@ -174,7 +177,9 @@ function App() {
         >
           {getTodaysDate()}
         </text> */}
-        <g className="vineholder">{getVines()}</g>
+        <g className="vineholder" clipPath="url(#clippy)">
+          {getVines()}
+        </g>
         <circle
           cx="500"
           cy="500"
@@ -186,6 +191,9 @@ function App() {
         />
       </svg>
       <div className="dateText">{getTodaysDate()}</div>
+      <div className="instructionText">
+        refresh the screen for a new bouquet
+      </div>
     </div>
   );
 }
