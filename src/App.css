@@ -76,7 +76,7 @@ body {
   border-radius: 4px;
   color: #7d7167;
   background-color: #2b2724;
-  border: 1px solid #7d7167;
+  border: 2px solid #7d71675e;
   transition-property: all;
   transition-duration: 333ms;
 }
