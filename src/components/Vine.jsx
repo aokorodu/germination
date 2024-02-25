@@ -9,6 +9,8 @@ const Vine = (points) => {
   const pathRef = useRef(null);
   const animRef = useRef(null);
   const leafHolderRef = useRef(null);
+  const animationDelay = 0;
+
   useEffect(() => {
     drawPath();
     //addLeaves();
@@ -103,7 +105,7 @@ const Vine = (points) => {
           attributeName="transform"
           type="rotate"
           values={getRotationValues()}
-          begin="1s"
+          begin={`${animationDelay}s`}
           dur="10s"
           additive="sum"
           fill="freeze"
@@ -114,7 +116,7 @@ const Vine = (points) => {
         <animateTransform
           attributeName="transform"
           type="rotate"
-          begin="1s"
+          begin={`${animationDelay}s`}
           dur="10s"
           additive="sum"
           fill="freeze"
@@ -127,7 +129,7 @@ const Vine = (points) => {
           attributeName="transform"
           type="scale"
           values={`0; ${maxScale}`}
-          begin="1s"
+          begin={`${animationDelay}s`}
           dur="10s"
           additive="sum"
           fill="freeze"
@@ -135,7 +137,7 @@ const Vine = (points) => {
         <animateMotion
           ref={animRef}
           dur="10s"
-          begin="1s"
+          begin={`${animationDelay}s`}
           path=""
           fill="freeze"
           calcMode="spline"
