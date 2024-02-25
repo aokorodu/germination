@@ -130,7 +130,8 @@ const Vine = (points) => {
           fill="freeze"
           calcMode="spline"
           keyTimes="0;1"
-          keySplines="0.42, 0, 0.58, 1"
+          keySplines="0.42, 0.0, 0.58, 1.0"
+          keyPoints="0;1"
         />
       </use>
     </>
