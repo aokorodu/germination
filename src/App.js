@@ -271,16 +271,14 @@ function App() {
       )}
 
       <div className="dateText">{getTodaysDate()}</div>
-      <div className="instructionText">
-        refresh the screen for a new bouquet
-      </div>
-      <button
+      <div
+        className="growButton"
         onClick={() => {
           setGermination(!germinating);
         }}
       >
         {germinating ? "clear" : "grow"}
-      </button>
+      </div>
     </div>
   );
 }
