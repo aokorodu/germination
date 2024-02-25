@@ -70,8 +70,8 @@ function App() {
               dx="0"
               dy="0"
               stdDeviation="3"
-              flood-color="white"
-              flood-opacity="1"
+              floodColor="white"
+              floodOpacity="1"
             />
           </filter>
           <g id="flower">
@@ -120,7 +120,7 @@ function App() {
                 d="M8.64186 31.284C7.35466 29.9968 12.2605 22.2415 17.0716 18.0716L22.1689 23.1689C18.4719 28.1647 9.92906 32.5712 8.64186 31.284Z"
               />
 
-              <circle cx="20" cy="20" r="5" fill="white" fill-opacity=".1" />
+              <circle cx="20" cy="20" r="5" fill="white" fillOpacity=".1" />
             </g>
           </g>
           <radialGradient
@@ -134,49 +134,20 @@ function App() {
             <stop offset="1" stopColor="#1f1c1a" />
           </radialGradient>
           <radialGradient id="glow">
-            <stop offset="0%" stop-color="red" />
-            <stop offset="100%" stop-color="blue" />
+            <stop offset="0%" stopColor="red" />
+            <stop offset="100%" stopColor="blue" />
           </radialGradient>
 
           <g id="ball">
             <circle cx="0" cy="0" r="4" fill="white" />
           </g>
         </defs>
-
-        {/* <rect
-          width="1000"
-          height="1000"
-          stroke="grey"
-          fill="url(#paint0_radial_1150_1431)"
-        /> */}
         <circle
           cx="500"
           cy="500"
           r="498"
           fill="url(#paint0_radial_1150_1431)"
         />
-        {/* <text
-          className="titleText"
-          x="30"
-          y="970"
-          textAnchor="start"
-          dominantBaseline={"baseline"}
-          fill="white"
-          fontSize={40}
-        >
-          zuubaDigital
-        </text>
-        <text
-          className="dateText"
-          x="970"
-          y="970"
-          textAnchor="end"
-          dominantBaseline={"baseline"}
-          fill="white"
-          fontSize={30}
-        >
-          {getTodaysDate()}
-        </text> */}
         <g className="vineholder" clipPath="url(#clippy)">
           {getVines()}
         </g>

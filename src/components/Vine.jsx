@@ -70,8 +70,7 @@ const Vine = (points) => {
         ];
       const xpos = pt.x;
       const ypos = pt.y;
-      console.log("pt: ", pt);
-      arr.push(<Leaf x={xpos} y={ypos} />);
+      arr.push(<Leaf key={ypos} x={xpos} y={ypos} />);
     }
 
     return arr;
@@ -100,7 +99,7 @@ const Vine = (points) => {
         stroke="none"
         fillOpacity={0.6}
       >
-        <animateTransform
+        {/* <animateTransform
           attributeName="transform"
           type="rotate"
           values={getRotationValues()}
@@ -109,10 +108,21 @@ const Vine = (points) => {
           additive="sum"
           fill="freeze"
           calcMode="spline"
-          keyTimes="0;.5;1"
-          keySplines="0.42, 0, 0.58, 1; 0.42, 0, 0.58, 1;"
+          keyTimes="0; .5; 1"
+          keySplines=".4 0 .5 1; .4 0 .5 1"
+        ></animateTransform> */}
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          begin="1s"
+          dur="10s"
+          additive="sum"
+          fill="freeze"
+          values={getRotationValues()}
+          keyTimes="0; .5; 1"
+          calcMode="spline"
+          keySplines=".4 0 .5 1; .4 0 .5 1"
         ></animateTransform>
-
         <animateTransform
           attributeName="transform"
           type="scale"
