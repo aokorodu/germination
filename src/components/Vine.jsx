@@ -9,7 +9,7 @@ const Vine = (points) => {
   const pathRef = useRef(null);
   const animRef = useRef(null);
   const leafHolderRef = useRef(null);
-  const animationDelay = 0;
+  const animationDelay = 1;
 
   useEffect(() => {
     drawPath();
@@ -89,7 +89,7 @@ const Vine = (points) => {
         strokeOpacity={0.1}
         fill="none"
         pathLength={100}
-        strokeDasharray={100}
+        strokeDasharray={[100, 100]}
         strokeDashoffset={100}
       />
       <g ref={leafHolderRef}>{getLeaves()}</g>
