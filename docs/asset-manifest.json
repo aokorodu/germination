@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/germination/static/css/main.bfdbc087.css",
-    "main.js": "/germination/static/js/main.deeff0f7.js",
+    "main.css": "/germination/static/css/main.113c2a40.css",
+    "main.js": "/germination/static/js/main.5d0593c0.js",
     "index.html": "/germination/index.html",
-    "main.bfdbc087.css.map": "/germination/static/css/main.bfdbc087.css.map",
-    "main.deeff0f7.js.map": "/germination/static/js/main.deeff0f7.js.map"
+    "main.113c2a40.css.map": "/germination/static/css/main.113c2a40.css.map",
+    "main.5d0593c0.js.map": "/germination/static/js/main.5d0593c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.bfdbc087.css",
-    "static/js/main.deeff0f7.js"
+    "static/css/main.113c2a40.css",
+    "static/js/main.5d0593c0.js"
   ]
 }
