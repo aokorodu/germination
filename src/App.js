@@ -25,8 +25,8 @@ function App() {
     const maxY = 300 + Math.round(Math.random() * 550);
     let range = 0;
     const arr = [];
-    const rangeIncrement = 0.1 + Math.random() * 0.3;
-    for (let i = 0; i < maxY; i++) {
+    const rangeIncrement = 1 + Math.random() * 3;
+    for (let i = 0; i < maxY; i = i + 10) {
       const ypos = 1000 - i;
       const dx = Perlin.simplex2(defX, ypos / curveDenominator) * range;
       const xpos = startX + dx;

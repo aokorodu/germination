@@ -13,7 +13,6 @@ const Vine = (points) => {
 
   useEffect(() => {
     drawPath();
-    //addLeaves();
   });
 
   const maxY = pathPoints.length;
@@ -101,18 +100,6 @@ const Vine = (points) => {
         stroke="none"
         fillOpacity={0.6}
       >
-        {/* <animateTransform
-          attributeName="transform"
-          type="rotate"
-          values={getRotationValues()}
-          begin={`${animationDelay}s`}
-          dur="10s"
-          additive="sum"
-          fill="freeze"
-          calcMode="spline"
-          keyTimes="0; .5; 1"
-          keySplines=".4 0 .5 1; .4 0 .5 1"
-        ></animateTransform> */}
         <animateTransform
           attributeName="transform"
           type="rotate"
@@ -136,6 +123,7 @@ const Vine = (points) => {
         ></animateTransform>
         <animateMotion
           ref={animRef}
+          // rotate="auto"
           dur="10s"
           begin={`${animationDelay}s`}
           path=""
