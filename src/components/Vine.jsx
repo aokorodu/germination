@@ -4,12 +4,13 @@ import styles from "./Vine.module.scss";
 import cx from "classnames";
 import Leaf from "./MyLeaf.jsx";
 
-const Vine = (points) => {
-  const pathPoints = points.points;
+const Vine = ({ points, flowerColor }) => {
+  const pathPoints = points;
   const pathRef = useRef(null);
   const animRef = useRef(null);
   const leafHolderRef = useRef(null);
   const animationDelay = 1;
+  const c = flowerColor;
 
   useEffect(() => {
     drawPath();
@@ -19,6 +20,9 @@ const Vine = (points) => {
   const maxScale = 1 + Math.random() * 2;
 
   const getColor = () => {
+    console.log("c: ", c);
+    if (c != "random") return c;
+
     const h = Math.round(Math.random() * 360);
     const s = 50 + Math.round(Math.random() * 50);
     const l = 40 + Math.round(Math.random() * 50);

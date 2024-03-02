@@ -2,9 +2,11 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Vine from "./components/Vine";
 import Perlin from "perlin.js";
+import Swatch from "./components/Swatch";
 
 function App() {
-  const [germinating, setGermination] = useState(true);
+  const [colors, setColors] = useState(["#FF0000", "#00FF00", "#0000FF"]);
+  const [germinating, setGermination] = useState(false);
   useEffect(() => {});
   const numberOfVines = 5 + Math.round(Math.random() * 55);
   const defX = 500;
@@ -43,12 +45,29 @@ function App() {
     return arr;
   };
 
+  const getColor = () => {
+    const num = colors.length;
+
+    if (num == 0) return "random";
+    const ind = Math.floor(Math.random() * num);
+    return colors[ind];
+  };
+
+  const getSwatches = () => {
+    const arr = [];
+    colors.forEach((c) => {
+      arr.push(<Swatch color={c} />);
+    });
+
+    return arr;
+  };
+
   const getVines = () => {
     const arr = [];
 
     for (let i = 0; i < numberOfVines; i++) {
       const pts = generatePerlinePoints();
-      arr.push(<Vine points={pts} />);
+      arr.push(<Vine points={pts} flowerColor={getColor()} />);
     }
 
     return arr;
@@ -284,6 +303,7 @@ function App() {
           </svg>
         )}
       </div>
+      <div className="swatchHolder">{getSwatches()}</div>
       <div className="dateText">{getTodaysDate()}</div>
       <div
         className="growButton"
