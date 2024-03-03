@@ -1,6 +1,10 @@
-const Swatch = ({ color }) => {
+const Swatch = ({ color, callback }) => {
   return (
-    <div>
+    <div
+      onClick={() => {
+        callback(color);
+      }}
+    >
       <svg width="30" height="30" viewBox="0 0 30 30">
         <rect
           x="0"

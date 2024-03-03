@@ -20,7 +20,6 @@ const Vine = ({ points, flowerColor }) => {
   const maxScale = 1 + Math.random() * 2;
 
   const getColor = () => {
-    console.log("c: ", c);
     if (c != "random") return c;
 
     const h = Math.round(Math.random() * 360);

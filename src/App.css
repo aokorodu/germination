@@ -14,7 +14,7 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 100vh;
 }
@@ -44,16 +44,21 @@ body {
 }
 
 .instructionText {
-  margin-top: 0.5rem;
+  width: 100vw;
+  max-width: 600px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
   font-family: "Geologica", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-weight: 300;
   fill-opacity: 0.3;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   color: #7d7167;
   opacity: 1;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  text-align: left;
 }
 
 .loadingText {
@@ -119,7 +124,16 @@ body {
 }
 
 .swatchHolder {
+  width: 100vw;
+  max-width: 600px;
+  padding: 1rem;
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.small .react-colorful {
+  width: 120px;
+  height: 120px;
 }

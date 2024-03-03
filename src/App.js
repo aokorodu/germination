@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import Vine from "./components/Vine";
 import Perlin from "perlin.js";
 import Swatch from "./components/Swatch";
+import ColorPicker from "./components/ColorPicker";
 
 function App() {
-  const [colors, setColors] = useState(["#FF0000", "#00FF00", "#0000FF"]);
+  const [colors, setColors] = useState([]);
   const [germinating, setGermination] = useState(false);
   useEffect(() => {});
   const numberOfVines = 5 + Math.round(Math.random() * 55);
@@ -54,9 +55,28 @@ function App() {
   };
 
   const getSwatches = () => {
+    if (colors.length == 0) {
+      return (
+        <div className="instructionText">
+          select colors below. If no colors are selected, flower color will be
+          random
+        </div>
+      );
+    }
     const arr = [];
     colors.forEach((c) => {
-      arr.push(<Swatch color={c} />);
+      arr.push(
+        <Swatch
+          color={c}
+          callback={(c) => {
+            console.log("swatch click: ", c);
+            const newArr = colors.filter((color) => {
+              return color != c;
+            });
+            setColors(newArr);
+          }}
+        />
+      );
     });
 
     return arr;
@@ -304,7 +324,19 @@ function App() {
         )}
       </div>
       <div className="swatchHolder">{getSwatches()}</div>
-      <div className="dateText">{getTodaysDate()}</div>
+
+      <div>
+        {!germinating && (
+          <ColorPicker
+            callback={(c) => {
+              console.log("callback", c);
+              setColors((oldColors) => [...oldColors, c]);
+            }}
+          />
+        )}
+      </div>
+
+      {/* <div className="dateText">{getTodaysDate()}</div> */}
       <div
         className="growButton"
         onClick={() => {
