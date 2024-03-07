@@ -55,14 +55,6 @@ function App() {
   };
 
   const getSwatches = () => {
-    if (colors.length == 0) {
-      return (
-        <div className="instructionText">
-          select colors below. If no colors are selected, flower color will be
-          random
-        </div>
-      );
-    }
     const arr = [];
     colors.forEach((c) => {
       arr.push(
@@ -323,6 +315,12 @@ function App() {
           </svg>
         )}
       </div>
+
+      <div className="instructionText">
+        select colors below. If no colors are selected, flower color will be
+        random
+      </div>
+
       <div className="swatchHolder">{getSwatches()}</div>
 
       <div>
