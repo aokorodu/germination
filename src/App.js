@@ -54,24 +54,11 @@ function App() {
     return colors[ind];
   };
 
-  const getSwatches = () => {
-    const arr = [];
-    colors.forEach((c) => {
-      arr.push(
-        <Swatch
-          color={c}
-          callback={(c) => {
-            console.log("swatch click: ", c);
-            const newArr = colors.filter((color) => {
-              return color != c;
-            });
-            setColors(newArr);
-          }}
-        />
-      );
+  const removeSwatch = (c) => {
+    const newArr = colors.filter((color) => {
+      return color != c;
     });
-
-    return arr;
+    setColors(newArr);
   };
 
   const getVines = () => {
@@ -321,20 +308,20 @@ function App() {
         random
       </div>
 
-      <div className="swatchHolder">{getSwatches()}</div>
-
       <div>
         {!germinating && (
           <ColorPicker
-            callback={(c) => {
+            selectedColors={colors}
+            removeCallback={(c) => {
+              removeSwatch(c);
+            }}
+            selectCallback={(c) => {
               console.log("callback", c);
               setColors((oldColors) => [...oldColors, c]);
             }}
           />
         )}
       </div>
-
-      {/* <div className="dateText">{getTodaysDate()}</div> */}
       <div
         className="growButton"
         onClick={() => {
