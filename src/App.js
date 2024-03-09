@@ -2,10 +2,11 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Vine from "./components/Vine";
 import Perlin from "perlin.js";
-import Swatch from "./components/Swatch";
 import ColorPicker from "./components/ColorPicker";
+import ToggleButton from "./components/ToggleButton";
 
 function App() {
+  const [randomColors, setRandomColors] = useState(true);
   const [colors, setColors] = useState([]);
   const [germinating, setGermination] = useState(false);
   useEffect(() => {});
@@ -52,6 +53,10 @@ function App() {
     if (num == 0) return "random";
     const ind = Math.floor(Math.random() * num);
     return colors[ind];
+  };
+
+  const toggleColorMode = () => {
+    setRandomColors(!randomColors);
   };
 
   const removeSwatch = (c) => {
@@ -307,9 +312,16 @@ function App() {
         select colors below. If no colors are selected, flower color will be
         random
       </div>
-
       <div>
         {!germinating && (
+          <ToggleButton
+            label={randomColors ? "random color mode" : "choose colors"}
+            callback={toggleColorMode}
+          />
+        )}
+      </div>
+      <div>
+        {!germinating && !randomColors && (
           <ColorPicker
             selectedColors={colors}
             removeCallback={(c) => {
