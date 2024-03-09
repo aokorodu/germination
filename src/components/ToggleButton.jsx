@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styles from "./ToggleButton.module.css";
 
-const ToggleButton = ({ label, callback }) => {
-  const [selected, setSelected] = useState(true);
+const ToggleButton = ({ random, callback }) => {
+  const [selected, setSelected] = useState(random);
   return (
     <>
       <div className={styles.holder}>
@@ -38,17 +38,6 @@ const ToggleButton = ({ label, callback }) => {
         </svg>
         <div>random colors</div>
       </div>
-      {/* <div
-        onClick={() => {
-          setSelected(!selected);
-          callback();
-        }}
-        className={`${styles.button} ${
-          selected ? styles.selected : styles.deselected
-        }`}
-      >
-        {label}
-      </div> */}
     </>
   );
 };

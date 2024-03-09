@@ -318,6 +318,7 @@ function App() {
       <div>
         {!germinating && (
           <ToggleButton
+            random={randomColors}
             label={randomColors ? "random color mode" : "choose colors"}
             callback={toggleColorMode}
           />
