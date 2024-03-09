@@ -145,9 +145,10 @@ body {
   width: 100vw;
   height: 100vh;
   border: 1px solid white;
-  background: black;
+  background: rgba(0, 0, 0, 0.7);
   color: white;
   padding: 1rem;
+  padding-top: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

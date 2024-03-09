@@ -67,6 +67,10 @@ function App() {
     setColors(newArr);
   };
 
+  const clearSwatches = () => {
+    setColors([]);
+  };
+
   const getVines = () => {
     const arr = [];
 
@@ -369,6 +373,9 @@ function App() {
               selectCallback={(c) => {
                 console.log("callback", c);
                 setColors((oldColors) => [...oldColors, c]);
+              }}
+              clearCallback={() => {
+                clearSwatches();
               }}
             />
           )}

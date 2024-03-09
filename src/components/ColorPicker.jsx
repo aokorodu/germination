@@ -3,7 +3,12 @@ import { useState } from "react";
 import styles from "./ColorPicker.module.scss";
 import Swatch from "./Swatch";
 
-const ColorPicker = ({ selectedColors, selectCallback, removeCallback }) => {
+const ColorPicker = ({
+  selectedColors,
+  selectCallback,
+  removeCallback,
+  clearCallback,
+}) => {
   const [currentColor, setCurrentColor] = useState("#aabbcc");
   const getSwatches = () => {
     const arr = [];
@@ -17,7 +22,14 @@ const ColorPicker = ({ selectedColors, selectCallback, removeCallback }) => {
   return (
     <>
       <div className={styles.holder}>
-        <div className={styles.button}>clear</div>
+        <div
+          className={styles.button}
+          onClick={() => {
+            clearCallback();
+          }}
+        >
+          clear
+        </div>
         <section className="small example">
           <HexColorPicker color={currentColor} onChange={setCurrentColor} />
         </section>
