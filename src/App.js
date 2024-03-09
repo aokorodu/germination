@@ -6,6 +6,7 @@ import ColorPicker from "./components/ColorPicker";
 import ToggleButton from "./components/ToggleButton";
 
 function App() {
+  const [chooseColorMode, setChooseColorMode] = useState(false);
   const [randomColors, setRandomColors] = useState(true);
   const [colors, setColors] = useState([]);
   const [germinating, setGermination] = useState(false);
@@ -50,7 +51,7 @@ function App() {
   const getColor = () => {
     const num = colors.length;
 
-    if (num == 0) return "random";
+    if (randomColors | (num == 0)) return "random";
     const ind = Math.floor(Math.random() * num);
     return colors[ind];
   };
@@ -307,37 +308,72 @@ function App() {
           </svg>
         )}
       </div>
-      <div
-        className="growButton"
-        onClick={() => {
-          setGermination(!germinating);
-        }}
-      >
-        {germinating ? "clear" : "grow"}
+      <div id="controls">
+        <div
+          id="growButton"
+          className="controlButton"
+          onClick={() => {
+            setGermination(!germinating);
+          }}
+        >
+          {germinating ? "clear" : "grow"}
+        </div>
+        <div
+          id="choose-color-button"
+          className="controlButton"
+          onClick={() => {
+            setChooseColorMode(!chooseColorMode);
+          }}
+        >
+          color mode
+        </div>
       </div>
-      <div>
-        {!germinating && (
+      {chooseColorMode && (
+        <div className={"pickerHolder"}>
+          <div
+            className="closeButton"
+            onClick={() => {
+              setChooseColorMode(false);
+            }}
+          >
+            <svg width="30px" height="30px" viewBox="0 0 100 100">
+              <line
+                x1={0}
+                y1={0}
+                x2={50}
+                y2={50}
+                stroke="white"
+                strokeWidth={10}
+              />
+              <line
+                x1={50}
+                y1={0}
+                x2={0}
+                y2={50}
+                stroke="white"
+                strokeWidth={10}
+              />
+            </svg>
+          </div>
           <ToggleButton
             random={randomColors}
             label={randomColors ? "random color mode" : "choose colors"}
             callback={toggleColorMode}
           />
-        )}
-      </div>
-      <div>
-        {!germinating && !randomColors && (
-          <ColorPicker
-            selectedColors={colors}
-            removeCallback={(c) => {
-              removeSwatch(c);
-            }}
-            selectCallback={(c) => {
-              console.log("callback", c);
-              setColors((oldColors) => [...oldColors, c]);
-            }}
-          />
-        )}
-      </div>
+          {!randomColors && (
+            <ColorPicker
+              selectedColors={colors}
+              removeCallback={(c) => {
+                removeSwatch(c);
+              }}
+              selectCallback={(c) => {
+                console.log("callback", c);
+                setColors((oldColors) => [...oldColors, c]);
+              }}
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 }
