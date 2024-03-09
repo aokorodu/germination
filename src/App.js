@@ -307,10 +307,13 @@ function App() {
           </svg>
         )}
       </div>
-
-      <div className="instructionText">
-        select colors below. If no colors are selected, flower color will be
-        random
+      <div
+        className="growButton"
+        onClick={() => {
+          setGermination(!germinating);
+        }}
+      >
+        {germinating ? "clear" : "grow"}
       </div>
       <div>
         {!germinating && (
@@ -333,14 +336,6 @@ function App() {
             }}
           />
         )}
-      </div>
-      <div
-        className="growButton"
-        onClick={() => {
-          setGermination(!germinating);
-        }}
-      >
-        {germinating ? "clear" : "grow"}
       </div>
     </div>
   );

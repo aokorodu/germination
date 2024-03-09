@@ -17,16 +17,18 @@ const ColorPicker = ({ selectedColors, selectCallback, removeCallback }) => {
   return (
     <>
       <div className={styles.holder}>
+        <div className={styles.button}>clear</div>
         <section className="small example">
           <HexColorPicker color={currentColor} onChange={setCurrentColor} />
         </section>
-        <button
+        <div
+          className={styles.button}
           onClick={() => {
             selectCallback(currentColor);
           }}
         >
           select color
-        </button>
+        </div>
       </div>
       <div className="swatchHolder">{getSwatches()}</div>
     </>
