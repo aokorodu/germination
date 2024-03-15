@@ -84,6 +84,14 @@ function App() {
 
   return (
     <div className="App">
+      <div className={"zuubaDigitalText"}> zuubaDigital</div>
+      <div className="instructionText">
+        click <strong>grow</strong> to generate flowers
+      </div>
+      <div className="instructionText">
+        change the color palette by clicking the <strong>color mode</strong>{" "}
+        button
+      </div>
       <div className="svgholder">
         {germinating && (
           <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
@@ -289,17 +297,6 @@ function App() {
               r="498"
               fill="url(#paint0_radial_1150_1431)"
             />
-            <text
-              x="500"
-              y="500"
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="#7d7167"
-              fillOpacity={0.8}
-              fontSize={50}
-            >
-              ~ you know what to do ~
-            </text>
             <circle
               cx="500"
               cy="500"
